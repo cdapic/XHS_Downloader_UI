@@ -6,9 +6,14 @@ import { downloadFile } from '../services/api';
 interface MediaCardProps {
   media: XhsMedia;
   index: number;
+  labels: {
+    view: string;
+    save: string;
+    saved: string;
+  };
 }
 
-const MediaCard: React.FC<MediaCardProps> = ({ media, index }) => {
+const MediaCard: React.FC<MediaCardProps> = ({ media, index, labels }) => {
   const [status, setStatus] = useState<DownloadStatus>(DownloadStatus.IDLE);
 
   const handleDownload = async () => {
@@ -43,9 +48,6 @@ const MediaCard: React.FC<MediaCardProps> = ({ media, index }) => {
                 <Play className="w-8 h-8 text-white fill-white" />
               </div>
             </div>
-            <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/60 text-white text-xs rounded">
-              Video
-            </div>
           </div>
         ) : (
           <img 
@@ -64,7 +66,7 @@ const MediaCard: React.FC<MediaCardProps> = ({ media, index }) => {
               className="flex-1 bg-white/90 hover:bg-white text-slate-700 backdrop-blur-sm py-2 rounded-md text-xs font-medium flex items-center justify-center gap-1 shadow-sm transition-all"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              View
+              {labels.view}
             </button>
             <button
               onClick={handleDownload}
@@ -84,13 +86,12 @@ const MediaCard: React.FC<MediaCardProps> = ({ media, index }) => {
               ) : (
                 <Download className="w-3.5 h-3.5" />
               )}
-              {status === DownloadStatus.SUCCESS ? 'Saved' : 'Save'}
+              {status === DownloadStatus.SUCCESS ? labels.saved : labels.save}
             </button>
           </div>
         </div>
       </div>
       
-      {/* Mobile-only visible action bar (since hover doesn't work well on mobile) */}
       <div className="md:hidden flex items-center justify-between px-3 py-2 border-t border-slate-100 bg-slate-50">
          <span className="text-xs text-slate-500 font-mono">#{index + 1}</span>
          <button 

@@ -19,6 +19,7 @@ export interface XhsPost {
 export interface AppConfig {
   apiBaseUrl: string;
   apiToken?: string;
+  language: 'zh' | 'en';
 }
 
 export enum DownloadStatus {
@@ -30,6 +31,6 @@ export enum DownloadStatus {
 
 export interface AnalyzeResponse {
   success: boolean;
-  data?: any; // Flexible based on actual API response structure
+  data?: any;
   message?: string;
 }
