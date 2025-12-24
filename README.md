@@ -1,4 +1,4 @@
-# XHS Asset Manager - 小红书素材管理助手
+# XHS_Downloader_UI - 小红书素材下载Web UI
 
 这是一个基于 [JoeanAmier/XHS-Downloader](https://github.com/JoeanAmier/XHS-Downloader) 社区项目构建的专业级前端应用。它提供了一个直观、优雅的 B 端风格界面，帮助用户轻松地解析、管理和批量下载小红书笔记中的图片与视频素材。
 
@@ -18,11 +18,12 @@
 - **图标**: Lucide React
 - **部署**: 纯静态前端应用，支持快速部署到任何 Web 服务器
 
+
 ## 🚀 部署指南
 
 本项目作为前端界面，需要配合 `XHS-Downloader` 的后端服务运行。
 
-### 第一步：部署后端 (API 服务)
+### 部署后端 (API 服务)
 
 请参考原项目 [XHS-Downloader](https://github.com/JoeanAmier/XHS-Downloader) 的说明，使用 Docker 部署后端服务。确保后端 API 端口（通常是 8000）可以被前端访问。
 
@@ -31,14 +32,30 @@
 docker run -d -p 8000:8000 joeanamier/xhs-downloader
 ```
 
-### 第二步：部署前端
 
-由于本项目是纯静态的 ES 模块化应用，您可以将其部署在：
-- **Vercel / Netlify**: 直接上传项目文件夹即可。
-- **Nginx / Apache**: 将文件放入 Web 根目录。
-- **本地运行**: 使用任意静态服务器（如 `serve` 或 `http-server`）打开 `index.html`。
+### 本地开发
+```bash
+npm install
+npm run dev
+```
 
-### 第三步：配置连接
+### 构建与部署
+1. **运行构建**：
+   ```bash
+   npm run build
+   ```
+2. **预览构建产物**：
+   **注意**：由于现代浏览器的安全限制，**不能**直接通过双击 `dist/index.html` 打开。必须使用 Web 服务器运行。
+   ```bash
+   # 使用 vite 预览
+   npm run preview
+   # 或者使用 serve 工具
+   npx serve dist
+   ```
+3. **正式部署**：
+   将 `dist` 文件夹中的所有内容上传到 Nginx、Apache、Vercel 或 GitHub Pages。
+
+### 配置连接
 
 1. 打开部署好的前端页面。
 2. 点击右上角的 **“设置 (Settings)”** 图标。
@@ -49,7 +66,7 @@ docker run -d -p 8000:8000 joeanamier/xhs-downloader
 ## ⚠️ 注意事项
 
 1. **跨域问题 (CORS)**：如果您的前端和后端部署在不同的域名或 IP 下，请确保后端 Docker 容器配置了允许跨域访问，或者通过 Nginx 反向代理将前后台放在同一路径下。
-2. **演示模式**：默认 API 地址为 `demo`，此时系统会返回模拟数据供您测试界面 UI，不会调用真实接口。
+2. **演示模式**：默认 API 地址为 `demo`，此时系统会返回模拟数据供测试界面 UI，不会调用真实接口。
 
 ## 📄 开源协议
 

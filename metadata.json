@@ -1,5 +1,5 @@
 {
-  "name": "XHS Asset Manager",
+  "name": "XHS_Downloader_UI",
   "description": "A professional frontend for XHS-Downloader to analyze, manage, and download media assets from Xiaohongshu.",
   "requestFramePermissions": []
 }
