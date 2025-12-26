@@ -1,6 +1,6 @@
 # XHS_Downloader_UI - 小红书素材下载Web UI
 
-这是一个基于 [JoeanAmier/XHS-Downloader](https://github.com/JoeanAmier/XHS-Downloader) 社区项目构建的专业级前端应用。它提供了一个直观、优雅的 B 端风格界面，帮助用户轻松地解析、管理和批量下载小红书笔记中的图片与视频素材。
+这是一个基于 [JoeanAmier/XHS-Downloader](https://github.com/JoeanAmier/XHS-Downloader) 社区项目构建的前端应用,提供一个直观的web UI界面，方便下载小红书笔记中的图片与视频素材。
 
 ## ✨ 功能特性
 
@@ -45,7 +45,7 @@ npm run dev
    npm run build
    ```
 2. **预览构建产物**：
-   **注意**：由于现代浏览器的安全限制，**不能**直接通过双击 `dist/index.html` 打开。必须使用 Web 服务器运行。
+   **注意**：由于浏览器的安全限制，**不能**直接通过 `dist/index.html` 打开，必须使用 Web 服务器运行。
    ```bash
    # 使用 vite 预览
    npm run preview
@@ -53,7 +53,7 @@ npm run dev
    npx serve dist
    ```
 3. **正式部署**：
-   将 `dist` 文件夹中的所有内容上传到 Nginx、Apache、Vercel 或 GitHub Pages。
+   将 `dist` 文件夹中的所有内容上传到web服务器中
 
 ### 配置连接
 
